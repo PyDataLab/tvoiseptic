@@ -1,0 +1,1549 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ meta_tags.title }}</title>
+        <meta name="description" content="{{ meta_tags.description }}" />
+        <meta name="keywords" content="{{ meta_tags.keywords }}" />
+        <link rel="stylesheet" href="{% static 'css/font/stylesheet.css' %}" />
+        <link rel="stylesheet" href="{% static 'ajax/libs/reseter.css/2.0.0/reseter.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'npm/@fancyapps/ui@4.0/dist/fancybox.css' %}" />
+        <link rel="stylesheet" href="{% static 'ajax/libs/animate.css/3.7.2/animate.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/custom-select.css' %}" />
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
+        <link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="sidebar-wrap">
+                <a href="{% url 'city2:city2_content' %}#request" class="sidebar-block">
+                    <img loading="lazy" src="{{ sidebar.sidebar_image_1.url }}" alt="sidebar" />
+                    <p>{{ sidebar.engineer_text|linebreaksbr }}</p>
+                </a>
+                <a href="{{ sidebar.price_link }}" download class="sidebar-block">
+                    <img loading="lazy" src="{{ sidebar.sidebar_image_2.url }}" alt="sidebar" />
+                    <p>{{ sidebar.price_text|linebreaksbr }}</p>
+                </a>
+                <a href="{{ sidebar.whatsapp_link }}" class="sidebar-block">
+                    <img loading="lazy" src="{{ sidebar.sidebar_image_3.url }}" alt="whatsapp" />
+                    <p>{{ sidebar.whatsapp_text|linebreaksbr }}</p>
+                </a>
+            </div>
+            <div class="sidebar-up">
+                <img loading="lazy" src="{{ sidebar.sidebar_arrow.url }}" alt="sidebar" />
+            </div>
+        </div>
+
+        <div class="main">
+            <img loading="lazy" src="{{ header.bg_desktop.url }}" alt="фон" class="main-bg hidden-mobile" />
+            <img loading="lazy" src="{{ header.bg_mobile.url }}" alt="фон" class="main-bg hidden-desktop" />
+            <div class="header container">
+                <div class="header-logo">
+                    <a href="{% url 'city2:city2_content' %}"><img loading="lazy" src="{{ header.logo_image.url }}" alt="лого" /></a>
+                    <p><span>{{ header.header_text1 }}</span><br>{{ header.header_text2 }}</p>
+                </div>
+                <div class="header-map">
+                    <img loading="lazy" src="{{ header.map_image.url }}" alt="карта" />
+                    <div class="header-map__text">
+                        <p class="header-map__info">{{ header.map_address }} <br></p>
+                         <a href="{{ header.map_link }}" target="_blank" class="underline">{{ header.map_link_text }}</a>
+                    </div>
+                </div>
+                <a href="{{ header.catalog_link }}" download class="header-catalog underline">{{ header.catalog_link_text }}</a>
+                <div class="header-messenger">
+                    <div class="header-messenger__text">
+                        <span class="light"></span>
+                        <p>Задать вопрос,<br>мы сейчас онлайн</p>
+                    </div>
+                    <a href="{{ header.tg_link }}">
+                        <div class="telegram"><img loading="lazy" src="{{ header.tg_icon.url }}" alt="telegram" /></div>
+                    </a>
+                    <a href="{{ header.wa_link }}">
+                        <div class="whatsapp"><img loading="lazy" src="{{ header.wa_icon.url }}" alt="whatsapp" /></div>
+                    </a>
+                </div>
+                <div class="header-call">
+                    <div class="header-call__time">
+                        <span class="light"></span>
+                        <p>{{ header.working_hours }}</p>
+                    </div>
+                    <a href="{{ header.phone_link }}" class="header-call__phone">
+                        <img loading="lazy" src="{{ header.phone_image.url }}" alt="телефон" />
+                        <p>{{ header.phone_number }}</p>
+                    </a>
+                    <div class="header-call__popup popup-request__open underline">{{ header.popup_text }}</div>
+                </div>
+                <div class="header-burger"><span></span><span></span><span></span></div>
+            </div>
+
+            <div class="nav">
+                <div class="container">
+                    <div class="nav-close hidden-desktop">&times;</div>
+                    <a href="{% url 'city2:city2_content' %}">{{ menu.main_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#quiz">{{ menu.quiz_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#budget">{{ menu.budget_link_text }}</a>
+                    <a href="{{ menu.catalog_link }}" download>{{ menu.catalog_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#guarantees">{{ menu.guarantees_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#arranged">{{ menu.portfolio_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#install">{{ menu.about_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#quality">{{ menu.quality_link_text }}</a>
+                    <a href="{% url 'city2:city2_content' %}#contacts">{{ menu.contacts_link_text }}</a>
+                </div>
+            </div>
+
+            <div class="main-content container">
+                <h1 class="wow fadeInUp">{{ main_content.h1|safe }}</h1>
+                <div class="main-adv">
+                    <div class="main-adv__item">
+                        <img loading="lazy" src="{{ main_content.check_img.url }}" alt="check" />
+                        <p>{{ main_content.text_1|safe }}</p>
+                    </div>
+                    <div class="main-adv__item">
+                        <img loading="lazy" src="{{ main_content.check_img.url }}" alt="check" />
+                        <p>{{ main_content.text_2|safe }}</p>
+                    </div>
+                    <div class="main-adv__item">
+                        <img loading="lazy" src="{{ main_content.check_img.url }}" alt="check" />
+                        <p>{{ main_content.text_3|safe }}</p>
+                    </div>
+                    <div class="main-adv__item">
+                        <img loading="lazy" src="{{ main_content.check_img.url }}" alt="check" />
+                        <p>{{ main_content.text_4|safe }}</p>
+                    </div>
+                    <div class="main-adv__item">
+                        <img loading="lazy" src="{{ main_content.check_img.url }}" alt="check" />
+                        <p>{{ main_content.text_5|safe }}</p>
+                    </div>
+                </div>
+                <div class="main-footer">
+                    <a href="{% url 'city2:city2_content' %}#quiz">
+                        <button class="btn main-btn">{{ main_content.button_text|safe }}</button>
+                    </a>
+                    <div class="main-footer__hint">
+                        <img loading="lazy" src="{{ main_content.touch_img.url }}" alt="рука" />
+                        <p>{{ main_content.text_6|safe }}</p>
+                    </div>
+                </div>
+                <div class="main-hint main-hint-1">{{ main_content.text_01|safe }}</div>
+                <div class="main-hint main-hint-2">{{ main_content.text_02|safe }}</div>
+                <div class="main-hint main-hint-3">{{ main_content.text_03|safe }}</div>
+                <div class="main-hint main-hint-4">{{ main_content.text_04|safe }}</div>
+                <div class="main-hint main-hint-5">{{ main_content.text_05|safe }}</div>
+                <div class="main-hint main-hint-6">{{ main_content.text_06|safe }}</div>
+            </div>
+        </div>
+
+        <div class="add container">
+            <div class="add-left">
+                <div class="add-header">{{ add.add_text|safe }}</div>
+                <div class="add-nav">
+                    <div class="arrow arrow-prev"><img loading="lazy" src="{{ add.arrow_img.url }}" alt="стрелка" /></div>
+                    <div class="arrow arrow-next"><img loading="lazy" src="{{ add.arrow_img.url }}" alt="стрелка" /></div>
+                </div>
+            </div>
+            <div class="swipe">
+                <p>{{ add.add_text1 }}</p>
+                <img loading="lazy" src="{{ add.swipe_img.url }}" alt="листайте" />
+            </div>
+            <div class="add-slider owl-carousel">
+                <div class="add-block">
+                    <img loading="lazy" src="{{ add.add1_img.url }}" alt="Бурение" />
+                    <div>
+                        <div class="add-block__title">{{ add.add1_title }}</div>
+                        <div class="add-block__text">{{ add.add1_text }}</div>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <img loading="lazy" src="{{ add.add2_img.url }}" alt="Дренаж" />
+                    <div>
+                        <div class="add-block__title">{{ add.add2_title }}</div>
+                        <div class="add-block__text">{{ add.add2_text }}</div>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <img loading="lazy" src="{{ add.add3_img.url }}" alt="Водоснабжение" />
+                    <div>
+                        <div class="add-block__title">{{ add.add3_title }}</div>
+                        <div class="add-block__text">{{ add.add3_text }}</div>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <img loading="lazy" src="{{ add.add5_img.url }}" alt="Водоочистка" />
+                    <div>
+                        <div class="add-block__title">{{ add.add5_title }}</div>
+                        <div class="add-block__text">{{ add.add5_text }}</div>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <img loading="lazy" src="{{ add.add6_img.url }}" alt="Отопление" />
+                    <div>
+                        <div class="add-block__title">{{ add.add6_title }}</div>
+                        <div class="add-block__text">{{ add.add6_text }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz container" id="quiz">
+            <div class="block-header wow fadeInUp">{{ quiz.quiz_header|safe }}</div>
+            <div class="quiz-adv">
+                <div class="quiz-adv__block">
+                    <div class="quiz-adv__num">01</div>
+                    <div class="quiz-adv__text">{{ quiz.quiz_header_text1|safe }}</div>
+                </div>
+                <div class="quiz-adv__block">
+                    <div class="quiz-adv__num">02</div>
+                    <div class="quiz-adv__text">{{ quiz.quiz_header_text2|safe }}</div>
+                </div>
+                <div class="quiz-adv__block">
+                    <div class="quiz-adv__num">03</div>
+                    <div class="quiz-adv__text">{{ quiz.quiz_header_text3|safe }}</div>
+                </div>
+            </div>
+
+            <form id="quiz">
+                <div class="quiz-wrap">
+                    <div class="quiz-main">
+                        <div class="quiz-line">
+                            <div class="quiz-line__bg" style="width: 5%;"></div>
+                            <p class="quiz-line__text">{{ quiz.quiz_line_text1|safe }}</p>
+                        </div>
+
+                        <div class="quiz-question active">
+                            <div class="quiz-question__title">{{ quiz.quiz_question1_title|safe }}</div>
+                            <div class="quiz-question__photo">
+                                <label class="quiz-question__photo-label">
+                                    <input type="radio" name="Как планируете проживать в доме?" value="Круглогодично" />
+                                    <div class="quiz-question__photo-img">
+                                        <img loading="lazy" loading="lazy" src="{{ quiz.quiz_question1_1_img.url }}" alt="Круглогодично" />
+                                        <div class="quiz-question__check quiz-question__photo-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="quiz-question__photo-text">{{ quiz.quiz_question1_1_text|safe }}</p>
+                                </label>
+
+                                <label class="quiz-question__photo-label">
+                                    <input type="radio" name="Как планируете проживать в доме?" value="Летнее" />
+                                    <div class="quiz-question__photo-img">
+                                        <img loading="lazy" loading="lazy" src="{{ quiz.quiz_question1_2_img.url }}" alt="Летнее" />
+                                        <div class="quiz-question__check quiz-question__photo-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="quiz-question__photo-text">{{ quiz.quiz_question1_2_text|safe }}</p>
+                                </label>
+
+                                <label class="quiz-question__photo-label">
+                                    <input type="radio" name="Как планируете проживать в доме?" value="Периодический (наездами)" />
+                                    <div class="quiz-question__photo-img">
+                                        <img loading="lazy" loading="lazy" src="{{ quiz.quiz_question1_3_img.url }}" alt="Периодический" />
+                                        <div class="quiz-question__check quiz-question__photo-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="quiz-question__photo-text">{{ quiz.quiz_question1_3_text|safe }}</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <div class="quiz-question__title">{{ quiz.quiz_question2_title|safe }}</div>
+                            <div class="quiz-question__text">
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Будет проживать" value="1-3 человека" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question2_1|safe }}</p>
+                                    </div>
+                                </label>
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Будет проживать" value="4-6 человека" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question2_2|safe }}</p>
+                                    </div>
+                                </label>
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Будет проживать" value="7-10 человек" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question2_3|safe }}</p>
+                                    </div>
+                                </label>
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Будет проживать" value="11 и более" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question2_4|safe }}</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <div class="quiz-question__title">{{ quiz.quiz_question3_title|safe }}</div>
+                            <div class="quiz-question__text">
+                                <div class="label_div" style="display: flex;">
+                                    <label>
+                                        <div class="quiz-question__text-left">
+                                            <input type="radio" name="Куда будете отводить воду из септика?" value="Канава" />
+                                            <div class="quiz-question__check quiz-question__text-check">
+                                                <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                        fill="#D8D8D8"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                            <p>{{ quiz.quiz_question3_1_text|safe }}</p>
+                                        </div>
+                                    </label>
+                                    <div class="quiz-question__text-hint">
+                                        <img loading="lazy" src="{% static 'img/icons/i.svg' %}" alt="Канава" />
+                                        <div class="quiz-question__text-hint-text">{{ quiz.quiz_question3_1_hint|safe }}</div>
+                                    </div>
+                                </div>
+                                <div class="label_div" style="display: flex;">
+                                    <label>
+                                        <div class="quiz-question__text-left">
+                                            <input type="radio" name="Куда будете отводить воду из септика?" value="Колодец" />
+                                            <div class="quiz-question__check quiz-question__text-check">
+                                                <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                        fill="#D8D8D8"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                            <p>{{ quiz.quiz_question3_2_text|safe }}</p>
+                                        </div>
+                                    </label>
+                                    <div class="quiz-question__text-hint">
+                                        <img loading="lazy" src="{% static 'img/icons/i.svg' %}" alt="Колодец" />
+                                        <div class="quiz-question__text-hint-text">{{ quiz.quiz_question3_2_hint|safe }}</div>
+                                    </div>
+                                </div>
+                                <div class="label_div" style="display: flex;">
+                                    <label>
+                                        <div class="quiz-question__text-left">
+                                            <input type="radio" name="Куда будете отводить воду из септика?" value="Грунт" />
+                                            <div class="quiz-question__check quiz-question__text-check">
+                                                <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                        fill="#D8D8D8"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                            <p>{{ quiz.quiz_question3_3_text|safe }}</p>
+                                        </div>
+                                    </label>
+                                    <div class="quiz-question__text-hint">
+                                        <img loading="lazy" src="{% static 'img/icons/i.svg' %}" alt="Грунт" />
+                                        <div class="quiz-question__text-hint-text">{{ quiz.quiz_question3_3_hint|safe }}</div>
+                                    </div>
+                                </div>
+                                <div class="label_div" style="display: flex;">
+                                    <label>
+                                        <div class="quiz-question__text-left">
+                                            <input type="radio" name="Куда будете отводить воду из септика?" value="Не знаю, нужна консультация" />
+                                            <div class="quiz-question__check quiz-question__text-check">
+                                                <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                        fill="#D8D8D8"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                            <p>{{ quiz.quiz_question3_4_text|safe }}</p>
+                                        </div>
+                                    </label>
+                                    <div class="quiz-question__text-hint">
+                                        <img loading="lazy" src="{% static 'img/icons/i.svg' %}" alt="Грунт" />
+                                        <div class="quiz-question__text-hint-text">{{ quiz.quiz_question3_4_hint|safe }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <div class="quiz-question__title">{{ quiz.quiz_question4_title|safe }}</div>
+                            <div class="quiz-question__text two-rows">
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Доп услуги" value="Да" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question4_1|safe }}</p>
+                                    </div>
+                                </label>
+                                <label>
+                                    <div class="quiz-question__text-left">
+                                        <input type="radio" name="Доп услуги" value="Нет, уже все сделано" />
+                                        <div class="quiz-question__check quiz-question__text-check">
+                                            <svg width="8" height="6" viewbox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.85743 0.829457L7.15248 0.139535C7.05743 0.0465116 6.93861 0 6.80396 0C6.66931 0 6.5505 0.0465116 6.45545 0.139535L3.06535 3.45736L1.55248 1.96899C1.45743 1.87597 1.33861 1.82946 1.20396 1.82946C1.06931 1.82946 0.950495 1.87597 0.855446 1.96899L0.150495 2.65891C0.0475248 2.75194 0 2.86822 0 3C0 3.13178 0.0475247 3.24806 0.142574 3.34109L2.01188 5.17054L2.71683 5.86047C2.81188 5.95349 2.93069 6 3.06535 6C3.2 6 3.31881 5.95349 3.41386 5.86047L4.11881 5.17054L7.85743 1.51163C7.95248 1.4186 8 1.30233 8 1.17054C8 1.03876 7.95248 0.922481 7.85743 0.829457Z"
+                                                    fill="#D8D8D8"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <p>{{ quiz.quiz_question4_2|safe }}</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-footer">
+                            <div class="quiz-footer__hint">
+                                <img loading="lazy" loading="lazy" src="{{ quiz.touch_img.url }}" alt="" />
+                                <p>{{ quiz.touch_text|safe }}</p>
+                            </div>
+                            <div class="quiz-buttons">
+                                <button class="quiz-btn quiz-btn__prev">{{ quiz.button_text1|safe }}</button>
+                                <button class="quiz-btn quiz-btn__next" disabled="">{{ quiz.button_text2|safe }}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-right">
+                        <img loading="lazy" src="{{ quiz.quiz_right_bg.url }}" alt="" class="quiz-right__bg" />
+                        <div class="quiz-right__top">
+                            <div class="quiz-right__title">{{ quiz.quiz_right_text1|safe }}</div>
+                            <div class="quiz-right__get">{{ quiz.quiz_right_text2|safe }}</div>
+                        </div>
+                        <div class="quiz-right__bottom">{{ quiz.quiz_right_text3|safe }}</div>
+                    </div>
+                </div>
+                <div class="quiz-load">
+                    <img loading="lazy" src="{{ quiz.quiz_load_img.url }}" alt="" />
+                    <p>{{ quiz.quiz_load_text|safe }}</p>
+                </div>
+                <div class="quiz-result active">
+                    <img loading="lazy" src="{{ quiz.quiz_result_bg.url }}" alt="" class="quiz-result__bg" />
+                    <div class="quiz-result__wrap">
+                        <div class="quiz-result__title">{{ quiz.quiz_result_title|safe }}</div>
+                        <div class="quiz-result__subtitle">{{ quiz.quiz_result_subtitle|safe }}</div>
+                        <div class="quiz-result__text">{{ quiz.quiz_result_text|safe }}</div>
+                        <div class="quiz-result__form">
+                            <div id="select-2" class="select">
+                                <input type="hidden" name="Как связаться" value="Whatsapp" />
+                                <div class="select__toggle-img select__toggle-img__whatsapp active"><img loading="lazy" src="{{ quiz.quiz_result_wa.url }}" alt="" /></div>
+                                <div class="select__toggle-img select__toggle-img__telegram"><img loading="lazy" src="{{ quiz.quiz_result_tg.url }}" alt="" /></div>
+                                <button type="button" class="select__toggle" value="" data-select="toggle" data-index="1">{{ quiz.quiz_result_btn_text|safe }}</button>
+                                <div class="select__dropdown">
+                                    <ul class="select__options">
+                                        <li class="select__option" data-select="option" data-value="whatsapp" data-index="1">{{ quiz.quiz_result_wa_text|safe }}</li>
+                                        <li class="select__option" data-select="option" data-value="telegram" data-index="2">{{ quiz.quiz_result_tg_text|safe }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input required="" type="tel" name="Телефон" class="input phone quiz-result__phone" placeholder="Ваш телефон WhatsApp" />
+                            <button class="btn quiz-result__btn">{{ quiz.quiz_result_btn_text2|safe }}</button>
+                            <div class="form-accept__wrap">
+                                <label class="form-accept">
+                                    <input checked="" required="" type="checkbox" name="Согласие на обработку данных" id="" />
+                                    <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{{ quiz.quiz_result_check.url }}" alt="" /></div>
+                                </label>
+                                <p>{{ quiz.quiz_result_check_text|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="models container">
+            <div class="block-header wow fadeInUp">{{ category.header|safe }}</div>
+            <div class="swipe">
+                <p>{{ category.swipe_text|safe }}</p>
+                <img loading="lazy" src="{{ category.swipe_img.url }}" alt="" />
+            </div>
+            <div class="models-manufacturer__wrap">
+                <div class="arrow arrow-prev"><img loading="lazy" src="{{ category.arrow_img.url }}" alt="" /></div>
+                <div class="arrow arrow-next"><img loading="lazy" src="{{ category.arrow_img.url }}" alt="" /></div>
+                <div class="models-manufacturer owl-carousel">
+                    <div data-manufacturer="2" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer2_img.url }}" alt="" /></div>
+                    <div data-manufacturer="1" class="models-manufacturer__block active"><img loading="lazy" src="{{ category.manufacturer1_img.url }}" alt="" /></div>
+                    <div data-manufacturer="3" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer3_img.url }}" alt="" /></div>
+                    <div data-manufacturer="8" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer8_img.url }}" alt="" /></div>
+                    <div data-manufacturer="6" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer6_img.url }}" alt="" /></div>
+                    <div data-manufacturer="4" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer4_img.url }}" alt="" /></div>
+                    <div data-manufacturer="5" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer5_img.url }}" alt="" /></div>
+                    <div data-manufacturer="7" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer7_img.url }}" alt="" /></div>
+                    <div data-manufacturer="9" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer9_img.url }}" alt="" /></div>
+                    <div data-manufacturer="10" class="models-manufacturer__block"><img loading="lazy" src="{{ category.manufacturer10_img.url }}" alt="" /></div>
+                </div>
+            </div>
+
+            {% for i in numbers10 %}
+                <div class="models-main models-main-{{ forloop.counter }} {% if forloop.first %}active{% endif %}">
+                    <div class="models-buttons">
+                        {% for obj in model_dynamic %}
+                            {% if i == obj.manufacturer_number_d %}
+                                <div data-modelbtn="{{ obj.model_number_d }}" class="models-btn {% if forloop.first %}active{% endif %}">
+                                    {{ obj.name_d }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% for obj in model_dynamic %}
+                        {% if i == obj.manufacturer_number_d %}
+                            <div class="models-wrap models-wrap-{{ obj.model_number_d }} {% if forloop.first %}active{% endif %}">
+                        <div class="models-img">
+                            <img loading="lazy" src="{{ obj.image_d.url }}" alt="" />
+                        </div>
+                        <div class="models-info">
+                            <div class="models-title models-title__descr">{{ model_static.title_description_s }}</div>
+                            <div class="models-descr">{{ obj.description_d|safe }}</div>
+                            <div class="models-title models-title__char">{{ model_static.title_char_s }}</div>
+                            <div class="models-char">
+                                <div class="models-char__icon"><img loading="lazy" src="{% static 'img/models/char-1.svg' %}" alt="" /></div>
+                                <div class="models-char__title">{{ obj.char1_key_d|safe }}</div>
+                                <div class="models-char__text">{{ obj.char1_value_d|safe }}</div>
+                            </div>
+                            <div class="models-char">
+                                <div class="models-char__icon"><img loading="lazy" src="{% static 'img/models/char-2.svg' %}" alt="" /></div>
+                                <div class="models-char__title">{{ obj.char2_key_d|safe }}</div>
+                                <div class="models-char__text">{{ obj.char2_value_d|safe }}</div>
+                            </div>
+                            <div class="models-char">
+                                <div class="models-char__icon"><img loading="lazy" src="{% static 'img/models/char-3.svg' %}" alt="" /></div>
+                                <div class="models-char__title">{{ obj.char3_key_d|safe }}</div>
+                                <div class="models-char__text">{{ obj.char3_value_d|safe }}</div>
+                            </div>
+                            <div class="models-char">
+                                <div class="models-char__icon"><img loading="lazy" src="{% static 'img/models/char-4.svg' %}" alt="" /></div>
+                                <div class="models-char__title">{{ obj.char4_key_d|safe }}</div>
+                                <div class="models-char__text">{{ obj.char4_value_d|safe }}</div>
+                            </div>
+                        </div>
+                        <div class="models-line"></div>
+                        <div class="models-right">
+                            <div class="models-adv">
+                                <div class="models-adv__item">
+                                    <div class="models-adv__icon models-adv__icon-1"><img loading="lazy" src="{% static 'img/models/adv-1.svg' %}" alt="" /></div>
+                                    <p>{{ obj.available_d|safe }}</p>
+                                </div>
+                                <div class="models-adv__item">
+                                    <div class="models-adv__icon models-adv__icon-2"><img loading="lazy" src="{% static 'img/models/adv-2.svg' %}" alt="" /></div>
+                                    <p>{{ obj.discount_d|safe }}</p>
+                                </div>
+                                <div class="models-adv__item">
+                                    <div class="models-adv__icon models-adv__icon-3"><img loading="lazy" src="{% static 'img/models/adv-3.svg' %}" alt="" /></div>
+                                    <p>{{ obj.body_guarantee_d|safe }}</p>
+                                </div>
+                                <div class="models-adv__item">
+                                    <div class="models-adv__icon models-adv__icon-4"><img loading="lazy" src="{% static 'img/models/adv-3.svg' %}" alt="" /></div>
+                                    <p>{{ obj.installation_guarantee_d|safe }}</p>
+                                </div>
+                            </div>
+                            <div class="models-price">
+                                <div class="models-price__new">{{ obj.price_new_d|safe }}</div>
+                                <div class="models-price__old">
+                                    <p>{{ obj.price_old_d|safe }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'city2:city2_content' %}#request">
+                                <button class="btn models-order">{{ model_static.text_btn_s|safe }}</button>
+                            </a>
+                            <div class="models-hint">
+                                <p>{{ model_static.hint_key_s|safe }}</p>
+                                <div class="models-hint__icon">
+                                    <img loading="lazy" src="{% static 'img/icons/i.svg' %}" alt="" />
+                                </div>
+                                <div class="models-hint__text">{{ model_static.hint_value_s|safe }}</div>
+                            </div>
+                            <div class="models-footer">
+                                <div class="models-footer__icon"><img loading="lazy" src="{% static 'img/models/footer-1.svg' %}" alt="" /></div>
+                                <p>{{ model_static.installment_s|safe }}</p>
+                            </div>
+                            <div class="models-footer">
+                                <div class="models-footer__icon"><img loading="lazy" src="{% static 'img/models/footer-2.svg' %}" alt="" /></div>
+                                <p>{{ model_static.delivery_s|safe }}</p>
+                            </div>
+                            <div class="models-footer">
+                                <div class="models-footer__icon"><img loading="lazy" src="{% static 'img/models/footer-3.svg' %}" alt="" /></div>
+                                <a href="{{ model_static.wa_link_s }}">{{ model_static.wa_text_s }}</a>
+                            </div>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <div class="models-shop">
+                <p style="text-align: center;">{{ model_static.ya_map_title|safe }}</p>
+                <a href="{{ model_static.ya_map_link }}" target="_blank">
+                    <button class="btn models-shop__btn">{{ model_static.ya_map_btn|safe }}</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="catalog container" id="catalog">
+            <img loading="lazy" src="{{ catalog.image_bg_desktop.url }}" alt="" class="catalog-bg hidden-mobile" />
+            <img loading="lazy" src="{{ catalog.image_bg_mobile.url }}" alt="" class="catalog-bg hidden-desktop" />
+            <div class="catalog-title">{{ catalog.title|safe }}</div>
+            <h2 class="catalog-header wow fadeInUp">{{ catalog.title_h2|safe }}</h2>
+            <div class="catalog-update">
+                <img loading="lazy" src="{% static 'img/icons/update.svg' %}" alt="" />
+                <p>{{ catalog.update|safe }}</p>
+            </div>
+
+            <form id="form1" class="catalog-form">
+                <input type="hidden" name="Имя формы" value="Каталог" />
+                <div class="catalog-form__wrap">
+                    <div id="select-3" class="select">
+                        <input type="hidden" name="select" value="Whatsapp" />
+                        <div class="select__toggle-img select__toggle-img__whatsapp active"><img loading="lazy" src="{% static 'img/icons/wp.svg' %}" alt="" /></div>
+                        <div class="select__toggle-img select__toggle-img__telegram"><img loading="lazy" src="{% static 'img/icons/tg.svg' %}" alt="" /></div>
+                        <button type="button" class="select__toggle" value="" data-select="toggle" data-index="1">{{ catalog.btn_wa|safe }}</button>
+                        <div class="select__dropdown">
+                            <ul class="select__options">
+                                <li class="select__option" data-select="option" data-value="whatsapp" data-index="1">{{ catalog.wa_text|safe }}</li>
+                                <li class="select__option" data-select="option" data-value="telegram" data-index="2">{{ catalog.tg_text|safe }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input type="tel" name="Телефон" class="input phone" required="" placeholder="Ваш телефон" />
+                    <input type="text" id="validator" name=":" style="display: none;" value="">
+                    <button class="btn">{{ catalog.btn|safe }}</button>
+                </div>
+                <div class="form-accept__wrap">
+                    <label class="form-accept">
+                        <input checked="" required="" type="checkbox" name="accept" id="" />
+                        <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    </label>
+                    <p>{{ catalog.politic|safe }}</p>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="budget container" id="budget">
+            <div class="budget-left">
+                <h2 class="budget-header wow fadeInUp">{{ budget.title_h2|safe }}</h2>
+                <div class="budget-title">{{ budget.title|safe }}</div>
+                <div class="add-nav budget-nav">
+                    <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                </div>
+            </div>
+            <div class="swipe">
+                <p>{{ budget.swipe_text|safe }}</p>
+                <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+            </div>
+            <div class="budget-slider owl-carousel">
+                <div class="budget-block">
+                    <img loading="lazy" src="{{ budget.img_1.url }}" alt="" class="budget-block__bg" />
+                    <div class="budget-block__title">{{ budget.title_1|safe }}</div>
+                    <button class="btn budget-block__btn popup-stock__open">{{ budget.btn_1|safe }}</button>
+                </div>
+                <div class="budget-block">
+                    <img loading="lazy" src="{{ budget.img_2.url }}" alt="" class="budget-block__bg" />
+                    {{ budget.title_2|safe }}
+                    <button class="btn budget-block__btn popup-stock__open">{{ budget.btn_2|safe }}</button>
+                </div>
+                <div class="budget-block">
+                    <img loading="lazy" src="{{ budget.img_3.url }}" alt="" class="budget-block__bg" />
+                    {{ budget.title_3|safe }}
+                    <button class="btn budget-block__btn popup-stock__open">{{ budget.btn_3|safe }}</button>
+                </div>
+                <div class="budget-block">
+                    <img loading="lazy" src="{{ budget.img_4.url }}" alt="" class="budget-block__bg" />
+                    <div class="budget-block__title">{{ budget.title_4|safe }}</div>
+                    <button class="btn budget-block__btn popup-stock__open">{{ budget.btn_4|safe }}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="guarantees" id="guarantees">
+            <img loading="lazy" src="{{ guarantees.bg_1.url }}" alt="" class="guarantees-bg" />
+            <img loading="lazy" src="{{ guarantees.number.url }}" alt="" class="guarantees-num" />
+            <div class="guarantees-text wow fadeInUp">{{ guarantees.text|safe }}</div>
+        </div>
+
+        <div class="free container">
+            <img loading="lazy" src="{{ guarantees.bg_2.url }}" alt="" class="free-bg hidden-mobile" />
+            <img loading="lazy" src="{{ guarantees.mobile.url }}" alt="" class="free-bg hidden-desktop" />
+            <div class="free-icon">
+                <img loading="lazy" src="{% static 'img/free/sample.svg' %}" alt="" />
+            </div>
+            <h2 class="free-header wow fadeInUp">{{ guarantees.h2|safe }}</h2>
+        </div>
+
+        <div class="more container">
+            <div class="more-left">
+                <div class="block-header wow fadeInUp">{{ more.text1|safe }}</div>
+            </div>
+            <div class="more-right">
+                <div class="more-block__wrap">
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block1_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block1_text|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block2_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block2_text|safe }}</div>
+                        </div>
+                    </div>
+
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block3_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block3_text|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block4_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block4_text|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block5_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block5_text|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="more-block">
+                        <div class="more-block__check"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="more-block__title">{{ more.block6_title|safe }}</div>
+                            <div class="more-block__text">{{ more.block6_text|safe }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-footer">
+                    <img loading="lazy" src="{{ more.footer_img.url }}" alt="" class="more-footer__bg" />
+                    {{ more.footer_text|safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="arranged container" id="arranged">
+            <div class="block-header wow fadeInUp">{{ portfolio.header_text|safe }}</div>
+            <div class="swipe">
+                <p>{{ portfolio.swipe_text|safe }}</p>
+                <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+            </div>
+            <div class="arranged-slider__wrap">
+                <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                <div class="arranged-slider owl-carousel">
+                    
+                    <div class="arranged-block">
+                        <img loading="lazy" data-fancybox="arranged-1" src="{{ portfolio.block1_img_main.url }}" alt="" class="arranged-block__big" />
+                        <div class="arranged-block__images">
+                            <img loading="lazy" data-fancybox="arranged-1" src="{{ portfolio.block1_img2.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-1" src="{{ portfolio.block1_img3.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-1" src="{{ portfolio.block1_img4.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-1" src="{{ portfolio.block1_img5.url }}" alt="" />
+                            
+                        </div>
+                        <div class="arranged-block__title">{{ portfolio.block1_title|safe }}</div>
+                        <div class="arranged-block__footer">
+                            <div class="arranged-block__wrap">
+                                <img loading="lazy" src="{% static 'img/icons/pin.svg' %}" alt="" />
+                                <p>{{ portfolio.block1_address|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arranged-block">
+                        <img loading="lazy" data-fancybox="arranged-2" src="{{ portfolio.block2_img_main.url }}" alt="" class="arranged-block__big" />
+                        <div class="arranged-block__images">
+                            <img loading="lazy" data-fancybox="arranged-2" src="{{ portfolio.block2_img2.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-2" src="{{ portfolio.block2_img3.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-2" src="{{ portfolio.block2_img4.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-2" src="{{ portfolio.block2_img5.url }}" alt="" />
+                        </div>
+                        <div class="arranged-block__title">{{ portfolio.block2_title|safe }}</div>
+                        <div class="arranged-block__footer">
+                            <div class="arranged-block__wrap">
+                                <img loading="lazy" src="{% static 'img/icons/pin.svg' %}" alt="" />
+                                <p>{{ portfolio.block2_address|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arranged-block">
+                        <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block3_img_main.url }}" alt="" class="arranged-block__big" />
+                        <div class="arranged-block__images">
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block3_img2.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block3_img3.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block3_img4.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block3_img5.url }}" alt="" />
+                        </div>
+                        <div class="arranged-block__title">{{ portfolio.block3_title|safe }}</div>
+                        <div class="arranged-block__footer">
+                            <div class="arranged-block__wrap">
+                                <img loading="lazy" src="{% static 'img/icons/pin.svg' %}" alt="" />
+                                <p>{{ portfolio.block3_address|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arranged-block">
+                        <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block4_img_main.url }}" alt="" class="arranged-block__big" />
+                        <div class="arranged-block__images">
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block4_img2.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block4_img3.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block4_img4.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block4_img5.url }}" alt="" />
+                        </div>
+                        <div class="arranged-block__title">{{ portfolio.block4_title|safe }}</div>
+                        <div class="arranged-block__footer">
+                            <div class="arranged-block__wrap">
+                                <img loading="lazy" src="{% static 'img/icons/pin.svg' %}" alt="" />
+                                <p>{{ portfolio.block4_address|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arranged-block">
+                        <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block5_img_main.url }}" alt="" class="arranged-block__big" />
+                        <div class="arranged-block__images">
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block5_img2.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block5_img3.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block5_img4.url }}" alt="" />
+                            <img loading="lazy" data-fancybox="arranged-3" src="{{ portfolio.block5_img5.url }}" alt="" />
+                        </div>
+                        <div class="arranged-block__title">{{ portfolio.block5_title|safe }}</div>
+                        <div class="arranged-block__footer">
+                            <div class="arranged-block__wrap">
+                                <img loading="lazy" src="{% static 'img/icons/pin.svg' %}" alt="" />
+                                <p>{{ portfolio.block5_address|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="video container">
+            <div class="video-left">
+                <div class="video-left__sticky">
+                    <div class="block-header wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">{{ video.header_text|safe }}</div>
+                    <a href="{{ video.youtube_link1 }}" class="video-more">
+                      <a href="{{ video.youtube_link2 }}" target="_blank" class="video-more">
+                        <div class="video-more__icon"><img loading="lazy" src="{% static 'img/icons/youtube.svg' %}" alt="" /></div>
+                        <p>{{ video.text|safe }}</p>
+                    </a>
+                </div>
+            </div>
+            <div class="swipe">
+                <p>{{ video.swipe_text|safe }}</p>
+                <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+            </div>
+            <div class="video-right">
+                <a href="{{ video.youtube_shorts }}" target="_blank"  class="video-block">
+                    <img src="{{ video.img.url }}" alt="" class="video-block__bg" loading="lazy" />
+                    <img src="{% static 'img/icons/yt-play.svg' %}" alt="" class="video-block__icon" />
+                </a>
+            </div>
+        </div> 
+
+        <div class="reviews">
+            <img loading="lazy" src="{{ reviews.bg.url }}" alt="" class="reviews-bg" />
+            <div class="block-header wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">{{ reviews.header_text|safe }}</div>
+            <div class="reviews-wrap">
+
+                <div class="reviews-photo">
+                    <div class="reviews-photo__slider owl-carousel owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(-908px, 0px, 0px); transition: all 0s ease 0s; width: 3178px;">
+                                <div class="owl-item cloned" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img1.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img2.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item active first" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img3.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item active last" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img4.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img5.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img6.url }}" alt="" /></div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 454px;">
+                                    <div class="reviews-photo__block"><img loading="lazy" data-fancybox="reviews-photo" src="{{ reviews.img7.url }}" alt="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-nav disabled">
+                            <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                        </div>
+                        <div class="owl-dots disabled"></div>
+                    </div>
+                    <div class="reviews-photo__rate">
+                        <div class="reviews-photo__rate-num">{{ reviews.rate|safe }}</div>
+                        <div>
+                            <div class="reviews-photo__rate-stars">
+                                <img loading="lazy" src="{% static 'img/reviews/star.svg' %}" alt="" /><img loading="lazy" src="{% static 'img/reviews/star.svg' %}" alt="" /><img loading="lazy" src="{% static 'img/reviews/star.svg' %}" alt="" />
+                                <img loading="lazy" src="{% static 'img/reviews/star.svg' %}" alt="" /><img loading="lazy" src="{% static 'img/reviews/star.svg' %}" alt="" />
+                            </div>
+                            <div class="reviews-photo__rate-text">{{ reviews.text|safe }}</div>
+                        </div>
+                    </div>
+                    <a href="{{ reviews.ya_map_link }}" target="_blank" class="video-more">
+                        <div class="video-more__icon reviews-more__icon"><img loading="lazy" src="{% static 'img/reviews/yandex.svg' %}" alt="" /></div>
+                        <img loading="lazy" src="{% static 'img/reviews/pin.svg' %}" alt="" class="reviews-more__pin" />
+                        <p>{{ reviews.text2|safe }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="openly container">
+            <img loading="lazy" src="{{ reviews.bg2.url }}" alt="" class="openly-bg hidden-mobile" />
+            <img loading="lazy" src="{{ reviews.bg_mobile.url }}" alt="" class="openly-bg hidden-desktop" />
+            <div class="openly-header wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">{{ reviews.header_text2|safe }}</div>
+            <div class="openly-subtitle">{{ reviews.subtitle_text|safe }}</div>
+            <div class="openly-text">{{ reviews.text3|safe }}</div>
+            <a href="{{ reviews.wa_link }}">
+                <button class="btn openly-btn">
+                    <img loading="lazy" src="{% static 'img/openly/whatsapp.svg' %}" alt="" />
+                    <p>{{ reviews.text4|safe }}</p>
+                </button>
+            </a>
+        </div>
+
+        <div class="install-wrap">
+            <div class="install" id="install">
+                <img loading="lazy" src="{{ install.bg.url }}" alt="" class="install-bg hidden-mobile" />
+                <img loading="lazy" src="{{ install.bg_mobile.url }}" alt="" class="install-bg hidden-desktop" />
+                <div class="install-left">
+                    <div class="block-header wow fadeInUp install-header" style="visibility: visible; animation-name: fadeInUp;">{{ install.header_text|safe }}</div>
+                    <div class="install-subtitle">{{ install.subtitle|safe }}</div>
+                    <div class="swipe">
+                        <p>{{ install.swipe_text|safe }}</p>
+                        <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+                    </div>
+                    <div class="install-adv">
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img1.url }}" alt="" />
+                            <p>{{ install.text1|safe }}</p>
+                        </div>
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img2.url }}" alt="" />
+                            <p>{{ install.text2|safe }}</p>
+                        </div>
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img3.url }}" alt="" />
+                            <p>{{ install.text3|safe }}</p>
+                        </div>
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img4.url }}" alt="" />
+                            <p>{{ install.text4|safe }}</p>
+                        </div>
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img5.url }}" alt="" />
+                            <p>{{ install.text5|safe }}</p>
+                        </div>
+                        <div class="install-adv__item">
+                            <img loading="lazy" src="{{ install.img6.url }}" alt="" />
+                            <p>{{ install.text6|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="instal-right">
+                    <div class="install-block">
+                        <div class="install-block__icon"><img loading="lazy" src="{% static 'img/install/person.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="install-block__title">{{ install.title_right1|safe }}</div>
+                            <div class="install-block__text">{{ install.text_right1|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="install-block">
+                        <div class="install-block__icon"><img loading="lazy" src="{% static 'img/install/quality.svg' %}" alt="" /></div>
+                        <div>
+                            <div class="install-block__title">{{ install.title_right2|safe }}</div>
+                            <div class="install-block__text">{{ install.text_right2|safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="numbers container">
+            <div class="numbers-block">
+                <div class="numbers-block__title wow fadeInUp" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">{{ numbers.title1|safe }}</div>
+                <div class="numbers-block__text">{{ numbers.text1|safe }}</div>
+            </div>
+            <div class="numbers-block">
+                <div class="numbers-block__title wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">{{ numbers.title2|safe }}</div>
+                <div class="numbers-block__text">{{ numbers.text2|safe }}</div>
+            </div>
+            <div class="numbers-block">
+                <div class="numbers-block__title wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">{{ numbers.title3|safe }}</div>
+                <div class="numbers-block__text">{{ numbers.text3|safe }}</div>
+            </div>
+            <div class="numbers-block">
+                <div class="numbers-block__title wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">{{ numbers.title4|safe }}</div>
+                <div class="numbers-block__text">{{ numbers.text4|safe }}</div>
+            </div>
+        </div>
+
+        <div class="mount owl-carousel">
+            <div class="mount-block">
+                <img loading="lazy" src="{{ numbers.montage_img1.url }}" alt="" class="mount-bg" />
+                <div class="mount-header block-header wow fadeInUp">{{ numbers.montage_header1|safe }}</div>
+                <div class="mount-right">
+                    <div class="mount-num">{{ numbers.montage_number1|safe }}</div>
+                    <div class="mount-text">{{ numbers.montage_text1|safe }}</div>
+                    <div class="mount-nav">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mount-block">
+                <img loading="lazy" src="{{ numbers.montage_img2.url }}" alt="" class="mount-bg" />
+                <div class="mount-header block-header wow fadeInUp">{{ numbers.montage_header2|safe }}</div>
+                <div class="mount-right">
+                    <div class="mount-num">{{ numbers.montage_number2|safe }}</div>
+                    <div class="mount-text">{{ numbers.montage_text2|safe }}</div>
+                    <div class="mount-nav">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mount-block">
+                <img loading="lazy" src="{{ numbers.montage_img3.url }}" alt="" class="mount-bg" />
+                <div class="mount-header block-header wow fadeInUp">{{ numbers.montage_header3|safe }}</div>
+                <div class="mount-right">
+                    <div class="mount-num">{{ numbers.montage_number3|safe }}</div>
+                    <div class="mount-text">{{ numbers.montage_text3|safe }}</div>
+                    <div class="mount-nav">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mount-block">
+                <img loading="lazy" src="{{ numbers.montage_img4.url }}" alt="" class="mount-bg" />
+                <div class="mount-header block-header wow fadeInUp">{{ numbers.montage_header4|safe }}</div>
+                <div class="mount-right">
+                    <div class="mount-num">{{ numbers.montage_number4|safe }}</div>
+                    <div class="mount-text">{{ numbers.montage_text4|safe }}</div>
+                    <div class="mount-nav">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mount-block">
+                <img loading="lazy" src="{{ numbers.montage_img5.url }}" alt="" class="mount-bg" />
+                <div class="mount-header block-header wow fadeInUp">{{ numbers.montage_header5|safe }}</div>
+                <div class="mount-right">
+                    <div class="mount-num">{{ numbers.montage_number5|safe }}</div>
+                    <div class="mount-text">{{ numbers.montage_text5|safe }}</div>
+                    <div class="mount-nav">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quality container" id="quality">
+            <img loading="lazy" src="{{ quality.bg.url }}" alt="" class="quality-bg" />
+            <div class="block-header wow fadeInUp">{{ quality.header_text|safe }}</div>
+            <div class="swipe">
+                <p>{{ quality.swipe_text|safe }}</p>
+                <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+            </div>
+            <div class="quality-wrap">
+                <div class="quality-block">
+                    <div class="quality-block__num">{{ quality.number1|safe }}</div>
+                    <div class="quality-block__title">{{ quality.title1|safe }}</div>
+                    <p class="quality-block__text">{{ quality.text1_1|safe }}</p>
+                    <p class="quality-block__text">{{ quality.text1_2|safe }}</p>
+                </div>
+                <div class="quality-block">
+                    <div class="quality-block__num">02</div>
+                    <div class="quality-block__title">{{ quality.title2|safe }}</div>
+                    <p class="quality-block__text">{{ quality.text2_1|safe }}</p>
+                    <p class="quality-block__text">{{ quality.text2_2|safe }}</p>
+                </div>
+                <div class="quality-block">
+                    <div class="quality-block__num">03</div>
+                    <div class="quality-block__title">{{ quality.title3|safe }}</div>
+                    <p class="quality-block__text">{{ quality.text3_1|safe }}</p>
+                    <p class="quality-block__text">{{ quality.text3_2|safe }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="report container">
+            <img loading="lazy" src="{{ quality.bg2.url }}" alt="" class="report-bg hidden-mobile" />
+            <img loading="lazy" src="{{ quality.bg_mobile.url }}" alt="" class="report-bg hidden-desktop" />
+            <div class="block-header wow fadeInUp report-header">{{ quality.report_header|safe }}</div>
+            <div class="report-text">{{ quality.report_text|safe }}</div>
+        </div>
+
+        <div class="faq container">
+            <div class="block-header wow fadeInUp">{{ faq.header_text|safe }}</div>
+            <div class="faq-wrap">
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question1|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer1|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question2|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer2|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question3|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer3|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question4|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer4|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question5|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer5|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question6|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer6|safe }}</div>
+                </div>
+
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question7|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer7|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question8|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer8|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question9|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer9|safe }}</div>
+                </div>
+                <div class="faq-block">
+                    <div class="faq-block__top">
+                        <div class="faq-block__title">{{ faq.question10|safe }}</div>
+                        <div class="faq-block__plus"><span></span><span></span></div>
+                    </div>
+                    <div class="faq-block__answer">{{ faq.answer10|safe }}</div>
+                </div>
+            </div>
+            <div class="block-center">
+                <a href="{{ faq.wa_link }}" class="faq-btn">
+                    <img loading="lazy" src="{% static 'img/openly/whatsapp.svg' %}" alt="" />
+                    <p>{{ faq.wa_text }}</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="request container" id="request">
+            <div class="block-header wow fadeInUp">{{ requisition.header_text|safe }}</div>
+            <div class="block-title">{{ requisition.title|safe }}</div>
+            <div class="request-main">
+                <img loading="lazy" src="{{ requisition.bg.url }}" alt="" class="request-bg hidden-mobile" />
+                <img loading="lazy" src="{{ requisition.bg_mobile.url }}" alt="" class="request-bg hidden-desktop" />
+                <div class="request-title">{{ requisition.title2|safe }}</div>
+
+                <div class="request-item">
+                    <div class="request-item__icon"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    <p>{{ requisition.text1|safe }}</p>
+                </div>
+                <div class="request-item">
+                    <div class="request-item__icon"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    <p>{{ requisition.text2|safe }}</p>
+                </div>
+                <div class="request-item">
+                    <div class="request-item__icon"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    <p>{{ requisition.text3|safe }}</p>
+                </div>
+                <div class="request-item">
+                    <div class="request-item__icon"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    <p>{{ requisition.text4|safe }}</p>
+                </div>
+                <div class="request-item">
+                    <div class="request-item__icon"><img loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                    <p>{{ requisition.text5|safe }}</p>
+                </div>
+
+                <div class="request-text">{{ requisition.text6|safe }}</div>
+                <div class="request-form">
+                    <div class="request-form__title">{{ requisition.title3|safe }}</div>
+
+                    <form id="form2">
+                        <input type="hidden" name="Имя формы" value="Вызов специалиста" />
+                        <div class="request-form__wrap">
+                            <input type="tel" name="Телефон" class="input phone" placeholder="Ваш телефон" />
+                            <input type="text" id="validator" name=":" style="display: none;" value="">
+                            <button class="btn">{{ requisition.btn|safe }}</button>
+                        </div>
+                        <div class="form-accept__wrap">
+                            <label class="form-accept">
+                                <input checked="" required="" type="checkbox" name="accept" id="" />
+                                <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                            </label>
+                            <p>{{ requisition.text7|safe }}</p>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="request-employee">
+                    <div class="request-employee__name">{{ requisition.text8|safe }}</div>
+                    <div class="request-employee__job">{{ requisition.text9|safe }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts container" id="contacts">
+            <div class="block-header hidden-desktop">{{ contacts.header_text|safe }}</div>
+            <div class="contacts-info">
+                <div class="contacts-info__block">
+                    <img loading="lazy" src="{% static 'img/contacts/pin.svg' %}" alt="" />
+                    <div class="contacts-info__title">{{ contacts.title|safe }}</div>
+                    <a target="_blank" href="{{ contacts.ya_map_link|safe }}" class="contacts-info__text">{{ contacts.address|safe }}</a>
+                </div>
+                <div class="contacts-info__block">
+                    <img loading="lazy" src="{% static 'img/contacts/phone.svg' %}" alt="" />
+                    <div class="contacts-info__title">{{ contacts.title2|safe }}</div>
+                    <a href="{{ contacts.phone_link|safe }}" class="contacts-info__text">{{ contacts.phone|safe }}</a>
+                </div>
+                <div class="contacts-socials">
+                    <a href="{{ contacts.wa_link|safe }}" class="whatsapp"><img loading="lazy" src="{% static 'img/icons/wp.svg' %}" alt="" /></a>
+                    <a href="{{ contacts.tg_link|safe }}" class="telegram"><img loading="lazy" src="{% static 'img/icons/tg.svg' %}" alt="" /></a>
+                    <a href="{{ contacts.vk_link|safe }}" class="vk"><img loading="lazy" src="{% static 'img/icons/vk.svg' %}" alt="/" /></a>
+                </div>
+                <div class="contacts-info__block">
+                    <img loading="lazy" src="{% static 'img/contacts/mail.svg' %}" alt="" />
+                    <div class="contacts-info__title">{{ contacts.title3|safe }}</div>
+                    <a href="{{ contacts.email_link|safe }}" class="contacts-info__text">{{ contacts.email_text|safe }}</a>
+                </div>
+                <div class="contacts-info__block">
+                    <img loading="lazy" src="{% static 'img/contacts/clock.svg' %}" alt="" />
+                    <div class="contacts-info__title">{{ contacts.title4|safe }}</div>
+                    <div class="contacts-info__text">{{ contacts.text|safe }}</div>
+                </div>
+            </div>
+            <div class="contacts-photo">
+                <div class="contacts-photo__title">{{ contacts.title5|safe }}</div>
+                <div class="swipe">
+                    <p>{{ contacts.swipe_text|safe }}</p>
+                    <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+                </div>
+                <div class="contacts-slider__wrap">
+                    <div class="contacts-slider contacts-slider-1 owl-carousel">
+                        <div class="contacts-photo__block">
+                            <img loading="lazy" src="{{ contacts.slider1_img1.url }}" alt="" />
+                            <p>{{ contacts.slider1_text1|safe }}</p>
+                        </div>
+                        <div class="contacts-photo__block">
+                            <img loading="lazy" src="{{ contacts.slider1_img2.url }}" alt="" />
+                            <p>{{ contacts.slider1_text2|safe }}</p>
+                        </div>
+                        <div class="contacts-photo__block">
+                            <img loading="lazy" src="{{ contacts.slider1_img3.url }}" alt="" />
+                            <p>{{ contacts.slider1_text3|safe }}</p>
+                        </div>
+                    </div>
+                    <div class="contacts-slider__nav contacts-slider__nav-1">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+                <div class="swipe">
+                    <p>{{ contacts.swipe_text|safe }}</p>
+                    <img loading="lazy" src="{% static 'img/swipe.svg' %}" alt="" />
+                </div>
+                <div class="contacts-slider__wrap">
+                    <div class="contacts-slider contacts-slider-2 owl-carousel">
+                        <div class="contacts-photo__block">
+                            <img loading="lazy" src="{{ contacts.slider2_img1.url }}" alt="" />
+                            <p>{{ contacts.slider2_text1|safe }}</p>
+                        </div>
+                        <div class="contacts-photo__block">
+                            <img loading="lazy" src="{{ contacts.slider2_img2.url }}" alt="" />
+                            <p>{{ contacts.slider2_text2|safe }}</p>
+                        </div>
+                    </div>
+                    <div class="contacts-slider__nav contacts-slider__nav-2">
+                        <div class="arrow arrow-prev"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                        <div class="arrow arrow-next"><img loading="lazy" src="{% static 'img/icons/slider-arrow.svg' %}" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-map">
+                <div class="contacts-photo__title contacts-map__title">{{ contacts.title6|safe }}</div>
+                    {{ contacts.yandex_map|safe }}
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-wrap container">
+                <div class="footer-logo">
+                    <a href="{% url 'city2:city2_content' %}"><img loading="lazy" src="{{ footer.logo_img.url }}" alt="" /></a>
+                    <p>{{ footer.text1|safe }}</p>
+                </div>
+                <div class="footer-text">{{ footer.text2|safe }}</div>
+                <div class="footer-politics popup-politic__open">{{ footer.text3|safe }}</div>
+            </div>
+        </div>
+
+        <div class="popup popup-request">
+            <div class="popup-bg"></div>
+            <div class="popup-main popup-request__main">
+                <img loading="lazy" loading="lazy" src="{% static 'img/popup/close.svg' %}" alt="" class="popup-close" />
+                <img loading="lazy" src="{{ popup_request.bg.url }}" alt="" class="popup-request__bg" />
+                <div class="popup-request__wrap">
+                    <div class="popup-request__title">{{ popup_request.title|safe }}</div>
+                    <div class="popup-request__text">{{ popup_request.text|safe }}</div>
+
+                    <form id="form3">
+                        <input type="hidden" name="Имя формы" value="Перезвоните мне" />
+                        <input type="tel" name="phone" class="input phone" required="" placeholder="Ваш телефон" />
+                        <input type="text" id="validator" name=":" style="display: none;" value="">
+                        <button class="btn">{{ popup_request.btn|safe }}</button>
+                        <div class="form-accept__wrap">
+                            <label class="form-accept">
+                                <input checked="" required="" type="checkbox" name="accept" id="" />
+                                <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                            </label>
+                            <p>{{ popup_request.text2|safe }}</p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-stock">
+            <div class="popup-bg"></div>
+            <div class="popup-main popup-stock__main">
+                <img loading="lazy" loading="lazy" src="{% static 'img/popup/close.svg' %}" alt="" class="popup-close" />
+                <img loading="lazy" src="{{ popup_stock.bg.url }}" alt="" class="popup-request__bg" />
+                <div class="popup-request__wrap popup-stock__wrap">
+                    <div class="popup-stock__header">{{ popup_stock.header|safe }}</div>
+                    <div class="popup-stock__title">{{ popup_stock.title|safe }}</div>
+                    <div class="popup-stock__text">{{ popup_stock.text|safe }}</div>
+
+                    <form id="form4">
+                        <input type="tel" name="phone" class="input phone" required="" placeholder="Ваш телефон" />
+                        <input type="text" id="validator" name=":" style="display: none;" value="">
+                        <button class="btn">{{ popup_stock.btn|safe }}</button>
+                        <div class="form-accept__wrap">
+                            <label class="form-accept">
+                                <input checked="" required="" type="checkbox" name="accept" id="" />
+                                <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                            </label>
+                            <p>{{ popup_stock.text2|safe }}</p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-politic">
+            <div class="popup-bg"></div>
+            <div class="popup-main popup-politic__main">
+                <img loading="lazy" loading="lazy" src="{% static 'img/popup/close.svg' %}" alt="" class="popup-close" />
+                {{ popup_politic.full_text|safe }}
+            </div>
+        </div>
+
+        <div class="popup popup-leave">
+            <div class="popup-bg"></div>
+            <div class="popup-main popup-leave__main">
+                <img loading="lazy" src="{{ popup_leave.bg.url }}" alt="" class="popup-leave__bg" />
+                <img loading="lazy" loading="lazy" src="{% static 'img/popup/close.svg' %}" alt="" class="popup-close" />
+                <div class="popup-leave__wrap">
+                    <div class="popup-leave__header">{{ popup_leave.header|safe }}</div>
+                    <div class="popup-leave__text">{{ popup_leave.text|safe }}</div>
+                    <div class="popup-leave__title">{{ popup_leave.title|safe }}</div>
+                    <div class="popup-leave__form-text">{{ popup_leave.text2|safe }}</div>
+
+                    <form id="form5" class="popup-leave__form">
+                        <input type="hidden" name="Имя формы" value="Стойте! Подождите!" />
+                        <div id="select-4" class="select">
+                            <input type="hidden" name="select" value="Whatsapp" />
+                            <div class="select__toggle-img select__toggle-img__whatsapp active"><img loading="lazy" src="{% static 'img/icons/wp.svg' %}" alt="" /></div>
+                            <div class="select__toggle-img select__toggle-img__telegram"><img loading="lazy" src="{% static 'img/icons/tg.svg' %}" alt="" /></div>
+                            <button type="button" class="select__toggle" value="" data-select="toggle" data-index="1">{{ popup_leave.btn|safe }}</button>
+                            <div class="select__dropdown">
+                                <ul class="select__options">
+                                    <li class="select__option" data-select="option" data-value="whatsapp" data-index="1">{{ popup_leave.wa_text|safe }}</li>
+                                    <li class="select__option" data-select="option" data-value="telegram" data-index="2">{{ popup_leave.tg_text|safe }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="tel" name="Телефон" class="input phone" required="" placeholder="Ваш телефон" />
+                        <input type="text" id="validator" name=":" style="display: none;" value="">
+                        <button class="btn">{{ popup_leave.btn2|safe }}</button>
+                        <div class="form-accept__wrap">
+                            <label class="form-accept">
+                                <input checked="" required="" type="checkbox" name="accept" id="" />
+                                <div class="form-accept__check"><img loading="lazy" loading="lazy" src="{% static 'img/icons/check.svg' %}" alt="" /></div>
+                            </label>
+                            <p>{{ popup_leave.text3|safe }}</p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="up"></div>
+
+        <script src="{% static 'ajax/libs/jquery/3.6.0/jquery.min.js' %}"></script>
+        <script src="{% static 'ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'npm/@fancyapps/ui@4.0/dist/fancybox.umd.js' %}"></script>
+        <script src="{% static 'ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js' %}"></script>
+        <script src="{% static 'ajax/libs/wow/1.1.2/wow.min.js' %}"></script>
+        <script src="{% static 'js/custom-select.js' %}"></script>
+        <script src="{% static 'js/jquery.cookie.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script>
+            let select2 = new CustomSelect("#select-2");
+            let select3 = new CustomSelect("#select-3");
+            let select4 = new CustomSelect("#select-4");
+        </script>
+
+        <script type="text/javascript"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const manufacturerBlocks = document.querySelectorAll(".models-manufacturer__block");
+                const modelsMainBlocks = document.querySelectorAll(".models-main");
+                const modelsWrapBlocks = document.querySelectorAll(".models-wrap");
+
+                manufacturerBlocks.forEach(block => {
+                    block.addEventListener("click", function () {
+                        let manufacturerNumber = this.getAttribute("data-manufacturer");
+
+                        // Удаляем класс active у всех моделей и вложенных элементов
+                        modelsMainBlocks.forEach(mainBlock => mainBlock.classList.remove("active"));
+                        modelsWrapBlocks.forEach(wrapBlock => wrapBlock.classList.remove("active"));
+
+                        // Добавляем класс active к соответствующему models-main
+                        modelsMainBlocks.forEach(mainBlock => {
+                            if (mainBlock.classList.contains(`models-main-${manufacturerNumber}`)) {
+                                mainBlock.classList.add("active");
+                            }
+                        });
+
+                        // Добавляем класс active к первой модели внутри активного блока
+                        const activeMainBlock = document.querySelector(`.models-main-${manufacturerNumber}`);
+                        if (activeMainBlock) {
+                            const firstModelWrap = activeMainBlock.querySelector(".models-wrap");
+                            if (firstModelWrap) {
+                                firstModelWrap.classList.add("active");
+                            }
+                        }
+                    });
+                });
+            });
+
+        </script>
+    </body>
+</html>
